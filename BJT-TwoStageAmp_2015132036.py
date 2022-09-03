@@ -2,7 +2,7 @@
 Rajiv Das
 2015132036(2nd major)
 '''
-from operator import truediv
+#from operator import truediv
 import schemdraw
 import schemdraw.elements as elm
 
@@ -28,7 +28,7 @@ with schemdraw.Drawing() as d:
     d += (l5 := elm.Line().at(C3.end).right())
     d += (l6 := elm.Line().at(l4.end).right())
 
-    '''Start of second stage'''
+    '''Start of the second stage'''
 
     d += (R21 := elm.Resistor().endpoints(l5.end, l6.end).label('R1'))
     d += (l7 := elm.Line().at(R21.end).right())
@@ -43,6 +43,7 @@ with schemdraw.Drawing() as d:
     d += (l9 := elm.Line().at(R2e.start).right())
     d += (C8 := elm.Capacitor2().down().at(l9.end).label('C'))
     d += elm.Ground()
+    d += elm.Line().at(R2c.start).right().dot(open=True).label('+Vcc', 'right')
     d += (ll := elm.Line().at(C9.end).right())
     d += (Rl := elm.Resistor().at(ll.end).down().label('R_L'))
     d += elm.Ground()
