@@ -1,2 +1,3 @@
-# RC_coupled_BJT_amp_drawing_with_SchemDraw
-I drew this circuit using Schemdraw(a Python module). This was an assignment for one of my EEE courses (Electronics 2).
+# Circuit_drawing_with_Schemdraw-Python
+I drew these circuits using Schemdraw(a Python module). The benefit of this module is that it can produce high-quality SVG images.
+Since this module supports some LaTex commands, it is easy to label the circuit elements as I like.
