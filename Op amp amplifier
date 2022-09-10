@@ -1,0 +1,30 @@
+import schemdraw
+import schemdraw.elements as elm
+
+with schemdraw.Drawing() as d:
+    d.config(fontsize=12)
+    op = (elm.Opamp().label('741', loc='center', ofst=0)
+                 .label('1', 'n1', fontsize=9, ofst=(-.1, -.25), halign='right', valign='top')
+                 .label('5', 'n1a', fontsize=9, ofst=(-.1, -.25), halign='right', valign='top')
+                 .label('4', 'vs', fontsize=9, ofst=(-.1, -.2), halign='right', valign='top')
+                 .label('7', 'vd', fontsize=9, ofst=(-.1, .2), halign='right', valign='bottom')
+                 .label('2', 'in1', fontsize=9, ofst=(-.1, .1), halign='right', valign='bottom')
+                 .label('3', 'in2', fontsize=9, ofst=(-.1, .1), halign='right', valign='bottom')
+                 .label('6', 'out', fontsize=9, ofst=(-.1, .1), halign='left', valign='bottom'))
+    d += op
+    d += (L0 := elm.Line().left().at(op.in1).dot())
+    d += (R1 := elm.Resistor().left().at(L0.end).label('$R_1$\n$1.65k\Omega$').dot(open=True))
+    d += (Vs := elm.SourceSin().down().at(R1.end).label('$V_{signal}$\n83mV\nPeak to peak'))
+    d += (G1 := elm.Ground().at(Vs.end))
+    d += (L1 := elm.Line().length(.3).at(op.in2).left())
+    d += (L2 := elm.Line().at(L1.end).down().length(1.8))
+    d += (G2 := elm.Ground().at(L2.end))
+    d += (L3 := elm.Line().at(L0.end).up())
+    d += (L4 := elm.Line().at(L3.end).right().length(0.8))
+    d += (R2 := elm.Resistor().right().at(L4.end).label('$R_2$\n$10k\Omega$'))
+    d += (L5 := elm.Line().at(op.out).right().length(0.3).dot())
+    d += (L6 := elm.Line().at(R2.end).right().length(1.7))
+    d += (L7 := elm.Line().endpoints(L5.end, L6.end))
+    d += (L8 := elm.Line().at(L5.end).right().dot(open=True).label('$V_{out}$', 'right'))
+    d += (S1 := elm.Line().at(op.vd).up().length(0.8).dot(open=True).label('$+V_{CC}$\n15V', 'right'))
+    d += (S2 := elm.Line().at(op.vs).down().length(0.8).dot(open=True).label('$-V_{EE}$\n-15V', 'left'))
