@@ -3,9 +3,9 @@ import schemdraw.elements as elm
 
 with schemdraw.Drawing() as d:
     d += (V1 := elm.SourceSin().up().label('$V_{signal}$\n1V\npeak to peak'))
-    d += (C1 := elm.Capacitor().at(V1.end).right().label('100$\mu$F'))
-    d += (D1 := elm.Diode().down().reverse().at(C1.end).label('1N4148'))
-    d += (Vd := elm.SourceV().at(D1.end).reverse().down().label('0.6V'))
+    d += (C1 := elm.Capacitor().at(V1.end).right().label('C\n100$\mu$F'))
+    d += (D1 := elm.Diode().down().reverse().at(C1.end).label('D\n1N4148'))
+    d += (Vd := elm.SourceV().at(D1.end).reverse().down().label('$V_{Bias}$\n0.6V'))
     d += (L1 := elm.Line().at(Vd.end).right().length(2))
     d += (R1 := elm.Resistor().up().at(L1.end).label('$R_L$\n100k$\Omega$', loc='bot'))
     d += (L2 := elm.Line().at(R1.end).up().length(3))
