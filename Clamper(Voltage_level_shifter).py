@@ -14,5 +14,3 @@ with schemdraw.Drawing() as d:
     d += (L5 := elm.Line().at(L1.start).left().length(3).dot())
     d += (G1 := elm.Ground().at(L5.end))
     d += (L6 := elm.Line().endpoints(L5.end, V1.start))
-
-
