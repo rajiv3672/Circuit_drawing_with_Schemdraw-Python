@@ -19,7 +19,7 @@ with schemdraw.Drawing() as d:
     d += (Ly := elm.Line().down().at(R2.end).length(0.7))
     d += (G3 := elm.Ground().at(Ly.end))
     d += (C2 := elm.Capacitor().right().at(Q.collector).label('$C_2$').dot(open=True).label('$V_o$', 'right'))
-    d += (L3 := elm.Line().right().at(R3.end).dot(open=True).label('$+V_{cc}$\n10V', 'right'))
+    d += (L3 := elm.Line().right().at(R3.end).dot(open=True).label('$+V_{cc}$', 'right'))
     d += (L4 := elm.Line().right().at(Q.emitter).length(1.3))
     d += (Ce := elm.Capacitor().down().at(L4.end).label('$C_E$'))
     d += (Gc := elm.Ground().at(Ce.end))
