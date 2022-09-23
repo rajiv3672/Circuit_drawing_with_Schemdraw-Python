@@ -2,7 +2,7 @@ import schemdraw
 import schemdraw.elements as elm
 
 with schemdraw.Drawing() as d:
-    d.config(fontsize=20)
+    d.config(fontsize=30)
     d += (L1 := elm.Line().left().dot(open=True).length(2))
     d += (L3 := elm.Line().down().at(L1.start).length(1))
     d += (R1 := elm.Resistor().down().at(L3.start).label('$\\beta r_e$'))
@@ -13,4 +13,4 @@ with schemdraw.Drawing() as d:
     d += (S1 := elm.SourceControlledI().reverse().up().label('$\\beta I_b$', 'bot'))
     d += (L5 := elm.Line().right().length(2).at(S1.start).dot(open=True))
     d += (L6 := elm.Line().right().length(2).at(S1.end).dot(open=True))
-    d += (H2 := elm.Gap().endpoints(L5.end, L6.end).label(('+', '$V_{ce}$', '-')))
+    d += (H2 := elm.Gap().endpoints(L6.end, L5.end).label(('+', '$V_{ce}$', '-')))

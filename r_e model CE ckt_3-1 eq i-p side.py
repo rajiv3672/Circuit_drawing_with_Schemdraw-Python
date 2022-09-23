@@ -2,7 +2,7 @@ import schemdraw
 import schemdraw.elements as elm
 
 with schemdraw.Drawing() as d:
-    d.config(fontsize=20)
+    d.config(fontsize=30)
     d += (L1 := elm.Line().left().dot(open=True).length(2))
     d += (L3 := elm.Line().down().at(L1.start).length(1))
     d += (R1 := elm.Resistor().down().at(L3.start).label('$Z_i = \\beta r_e$'))
