@@ -2,7 +2,7 @@ import schemdraw
 import schemdraw.elements as elm
 
 with schemdraw.Drawing() as d:
-    d.config(fontsize=12)
+    d.config(fontsize=15)
     op = (elm.Opamp().label('741', loc='center', ofst=0)
                  .label('1', 'n1', fontsize=9, ofst=(-.1, -.25), halign='right', valign='top')
                  .label('5', 'n1a', fontsize=9, ofst=(-.1, -.25), halign='right', valign='top')
