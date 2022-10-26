@@ -1,0 +1,35 @@
+import schemdraw
+import schemdraw.elements as elm
+
+with schemdraw.Drawing() as d:
+    d.config(fontsize=15)
+    op = (elm.Opamp().label('741', loc='center', ofst=0)
+                 .label('1', 'n1', fontsize=9, ofst=(-.1, -.25), halign='right', valign='top')
+                 .label('5', 'n1a', fontsize=9, ofst=(-.1, -.25), halign='right', valign='top')
+                 .label('4', 'vs', fontsize=9, ofst=(-.1, -.2), halign='right', valign='top')
+                 .label('7', 'vd', fontsize=9, ofst=(-.1, .2), halign='right', valign='bottom')
+                 .label('2', 'in1', fontsize=9, ofst=(-.1, .1), halign='right', valign='bottom')
+                 .label('3', 'in2', fontsize=9, ofst=(-.1, .1), halign='right', valign='bottom')
+                 .label('6', 'out', fontsize=9, ofst=(-.1, .1), halign='left', valign='bottom'))
+    
+    d += (V1 := elm.SourceV().label('+\n15V\n-'))
+    d += (L1 := elm.Line().left().at(V1.end).length(1))
+    d += (L2 := elm.Line().left().at(V1.start).length(2.5))
+    d += (L3 := elm.Line().theta(60).at(L1.end).length(0.5))
+    d += (L4 := elm.Line().at(L2.end).up())
+    d += (L5 := elm.Line().theta(60).at(L4.end).length(2))
+    d += (La := elm.Lamp().endpoints(L5.end, L3.end).label('Lamp', loc='right'))
+    d.move(dx=3, dy=-0.5)
+    d += (R1 := elm.Resistor().down().label('$R_1$\n$1k\Omega$'))
+    d += (L6 := elm.Line().at(R1.start).right().length(1))
+    d += (R3 := elm.ResistorVar().label('$R_3$\n PhotoConductor', loc='top', ofst=-0.3).theta(60).at(R1.start))
+    d += (R2 := elm.Resistor().at(R3.end).label('$R_2$').theta(-60))
+    d += (G1 := elm.Ground().at(R1.end))
+    d += (L7 := elm.Line().length(3).down().at(L6.end))
+    d += (L8 := elm.Line().right().at(L7.end))
+    d += (Dt := elm.Dot().at(R1.start))
+    d += (dt := elm.Dot().at(R2.end))
+    d += (L9 := elm.Line().right().at(R2.end))
+    d += (R4 := elm.ResistorVar().at(R2.end).down().label(['+', '$v_{ref}$', '-'], 'top', ofst=-0.2).reverse().label('$10k\Omega$', loc='bot'))
+    d += op
+    d += (L10 := elm.Line().endpoints(L9.end, op.in2).right())
