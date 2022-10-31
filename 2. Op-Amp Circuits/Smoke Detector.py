@@ -23,6 +23,7 @@ with schemdraw.Drawing() as d:
     d += (R1 := elm.Resistor().down().label('$R_1$\n$1k\Omega$'))
     d += (L6 := elm.Line().at(R1.start).right().length(1))
     d += (R3 := elm.ResistorVar().label('$R_3$\n PhotoConductor', loc='top', ofst=-0.3).theta(60).at(R1.start))
+    d += (Lp := elm.Line().up().at(R3.end).dot(open=True).label('$+V_{cc}$').length(0.3))
     d += (R2 := elm.Resistor().at(R3.end).label('$R_2$').theta(-60))
     d += (G1 := elm.Ground().at(R1.end))
     d += (L7 := elm.Line().length(5).down().at(L6.end))
