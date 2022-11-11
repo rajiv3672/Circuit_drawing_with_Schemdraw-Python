@@ -4,7 +4,7 @@ import schemdraw.elements as elm
 with schemdraw.Drawing() as d:
     d.config(fontsize=20)
 
-    d += (S1 := elm.SourceV().up().label(['+', '$V_S$', '-'], loc='top'))
+    d += (S1 := elm.SourceV().up().label(['-', '$V_S$', '+'], loc='top'))
     d += (L1 := elm.Line().right().at(S1.end).length(0.5))
     d += (sw1 := elm.Button().right().flip().at(L1.end).label('Switch'))
     d += (Ind1 := elm.Inductor().down().at(sw1.end).label('L'))
