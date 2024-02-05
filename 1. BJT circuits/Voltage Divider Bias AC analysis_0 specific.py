@@ -23,3 +23,7 @@ with schemdraw.Drawing() as d:
     d += (L4 := elm.Line().right().at(Q.emitter).length(1.5))
     d += (Ce := elm.Capacitor().down().at(L4.end).label('$C_E$\n47$\mu$F'))
     d += (Gc := elm.Ground().at(Ce.end))
+    d += (Dt1 := elm.Dot().at(C1.end))
+    d += (Dt2 := elm.Dot().at(R3.end))
+    d += (Dt3 := elm.Dot().at(R3.start))
+    d += (Dt4 := elm.Dot().at(R4.start))

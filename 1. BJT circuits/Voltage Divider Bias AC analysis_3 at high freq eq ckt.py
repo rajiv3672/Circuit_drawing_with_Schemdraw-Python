@@ -27,4 +27,11 @@ with schemdraw.Drawing() as d:
     d += (C8 := elm.Capacitor().endpoints(R4.start, R2.start).linestyle('--').label('$C_{be}$', 'bot'))
     d += (C9 := elm.Capacitor().endpoints(Ce.start, C2.start).linestyle('--').label('$C_{ce}$', 'top'))
     d += (K1 := elm.Capacitor().endpoints(Q.base, G3.start).linestyle('--').label('$C_{w_i}$', 'top'))
+    d += (Dt1 := elm.Dot().at(C1.end))
+    d += (Dt2 := elm.Dot().at(R3.end))
+    d += (Dt3 := elm.Dot().at(R3.start))
+    d += (Dt4 := elm.Dot().at(R4.start))
+    d += (Dt5 := elm.Dot().at(Ce.start))
+    d += (Dt6 := elm.Dot().at(K1.end))
+    d += (Dt7 := elm.Dot().at(K1.start))
           
