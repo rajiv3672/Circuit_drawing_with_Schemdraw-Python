@@ -18,3 +18,7 @@ with schemdraw.Drawing() as d:
     d += (i1 :=  elm.CurrentLabel(top=False).reverse().at(Ind1).label('$i_L$').color('royalblue'))
     d += (i2 :=  elm.CurrentLabel(top=False).reverse().at(D1).label('$i_D$').color('royalblue'))
     d += (i3 :=  elm.CurrentLabel(top=False).at(C1).label('$i_C$').color('royalblue'))
+    d += (Dt1 := elm.Dot().at(Ind1.start))
+    d += (Dt2 := elm.Dot().at(Ind1.end))
+    d += (Dt3 := elm.Dot().at(C1.start))
+    d += (Dt4 := elm.Dot().at(C1.end))
